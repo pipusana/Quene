@@ -21,6 +21,29 @@ class QTest extends PHPUnit_Framework_TestCase
          $this->assertEquals($expected,$acturl);
     }
 
+    public function test_Queue_isFull()
+    {
+         $expected = true;
+         $queue = new Queue();
+         $queue->enquene('A');
+         $queue->enquene('A');
+         $queue->enquene('A');
+         $queue->enquene('A');
+         $queue->enquene('A');
+         $acturl = $queue->isFull();
+         $this->assertEquals($expected,$acturl);
+    }
+
+    public function test_Queue_is_not_Full()
+    {
+         $expected = false;
+         $queue = new Queue();
+         $queue->enquene('A');
+         $queue->enquene('A');
+         $queue->enquene('A');
+         $acturl = $queue->isFull();
+         $this->assertEquals($expected,$acturl);
+    }
 
 } 
 
